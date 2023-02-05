@@ -1,42 +1,11 @@
-# Nuxt 3 Minimal Starter
+# Development
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project exists in github and gitlab
+Github: Just to have it in my library
+Gitlab: Used for CI/CD Deployment cause gitlab provides free docker registry
 
-## Setup
+## Git commit and push to both repositories. See https://jigarius.com/blog/multiple-git-remote-repositories for more
 
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+1. git add .
+2. git commit -m "commit message"
+3. git push all master 
