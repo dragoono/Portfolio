@@ -1,5 +1,25 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+    app: {
+        head: {
+          title: 'Niklas Grieger - Developement',
+          meta: [
+            { charset: "utf-8" },
+            {
+              name: "viewport",
+              content:
+                "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui",
+            },
+            {
+              hid: "description",
+              name: "description",
+              content:
+                "Hello my name is Niklas Grieger. I'm a full stack developer and I love my job/hobby.",
+            },
+          ],
+          link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+        }
+      },
     css: ['vuetify/lib/styles/main.sass', '@mdi/font/css/materialdesignicons.min.css'],
     build: {
       transpile: ['vuetify'],
