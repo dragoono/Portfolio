@@ -1,11 +1,11 @@
 FROM node:18-alpine
 
 # Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN mkdir -p /var/www/dockerize-nuxt/nuxt-app
+WORKDIR /var/www/dockerize-nuxt/nuxt-app
 
 # Install app dependencies
-COPY ./package*.json /usr/src/app/
+COPY ./package*.json /var/www/dockerize-nuxt/nuxt-app
 RUN npm install
 
 # Set environment variables
@@ -14,7 +14,7 @@ ENV NUXT_HOST 0.0.0.0
 ENV NUXT_PORT 80
 
 # Bundle app source
-COPY . /usr/src/app
+COPY . /var/www/dockerize-nuxt/nuxt-app
 RUN npm run build
 
 EXPOSE 80
