@@ -1,7 +1,7 @@
 <template>
-  <v-row v-if="projects.length > 0" dense>
+  <v-row v-if="store.data && store.data.length > 0" dense>
     <v-col
-      v-for="project in projects"
+      v-for="project in store.data"
       :key="project.id"
       class="d-flex justify-center"
       cols="12"
@@ -12,23 +12,17 @@
         }"
         transition="fade-transition"
       >
-        <Project :project="project" />
+        <ProjectsItem :project="project" />
       </v-lazy>
     </v-col>
   </v-row>
   <p v-else>No projects found...</p>
 </template>
+<script setup>
+  import { useProjectStore } from "@/stores/project";
+  const store = useProjectStore();
+</script>
 <script>
-import Project from "~/components/projects/item";
-export default {
-  components: {
-    Project,
-  },
-  props: {
-    projects: {
-      type: Array,
-      default: null,
-    },
-  },
-};
+export default defineComponent({
+})
 </script>

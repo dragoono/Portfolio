@@ -11,7 +11,7 @@
 </template>
 
 <script>
-export default {
+export default defineComponent({
   layout: "empty",
   props: {
     error: {
@@ -32,7 +32,7 @@ export default {
       title,
     };
   },
-};
+})
 </script>
 
 <style scoped>

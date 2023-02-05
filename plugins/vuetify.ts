@@ -5,9 +5,10 @@ import * as directives from "vuetify/directives";
 //Labs
 import * as labs from 'vuetify/labs/components'
 
-const myCustomLightTheme: ThemeDefinition = {
-    dark: false,
+const myCustomTheme: ThemeDefinition = {
+    dark: true,
     colors: {
+        primary: "#01579B"
     },
 }
 
@@ -23,9 +24,9 @@ export default defineNuxtPlugin((nuxtApp) => {
         //TODO cannot import sass variables ?
         //styles: { configFile: 'assets/style/variables.scss' },
         theme: {
-            defaultTheme: 'myCustomLightTheme',
+            defaultTheme: 'myCustomTheme',
             themes: {
-                myCustomLightTheme,
+                myCustomTheme,
             }
         }
     })

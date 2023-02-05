@@ -3,7 +3,7 @@
     <div class="d-flex justify-space-between">
       <div>
         <v-img
-          v-if="$vuetify.breakpoint.smAndDown"
+          v-if="display.smAndDown"
           max-height="200"
           content-class="full-width"
           :src="project.image ? project.image : '/workinprogress.png'"
@@ -28,9 +28,8 @@
           <v-chip-group column>
             <v-chip v-for="icon in project.icons" :key="icon.id" class="ma-2">
               <v-tooltip top>
-                <template v-slot:activator="{ on }">
-                  <v-icon v-on="on">
-                    {{ "mdi-" + icon.key }}
+                <template v-slot:activator="{ props }">
+                  <v-icon :icon="'mdi-' + icon.key" v-bind="props">
                   </v-icon>
                 </template>
                 <span>{{ icon.name }}</span>
@@ -53,7 +52,7 @@
       </div>
 
       <v-avatar
-        v-if="!$vuetify.breakpoint.smAndDown"
+        v-if="!display.smAndDown"
         class="ma-3"
         size="125"
         tile
@@ -70,22 +69,24 @@
     </div>
   </v-card>
 </template>
+<script setup>
+import { useDisplay } from 'vuetify'
+const display = useDisplay()
+</script>
 <script>
-import ImagePlaceholder from "~/components/ImagePlaceholder";
-export default {
-  components: { ImagePlaceholder },
+export default defineComponent({
   props: {
     project: {
       type: Object,
       default: null,
     },
   },
-  computed: {
-    lazySrc() {
-      return this.$store.state.imageLazySrc;
-    },
-  },
-};
+  data(){
+    return {
+      lazySrc: 'https://picsum.photos/id/11/100/60'
+    }
+  }
+})
 </script>
 <style>
 .full-width {

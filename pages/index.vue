@@ -3,22 +3,15 @@
     <div class="mb-12 mt-12">
       <h1>About</h1>
     </div>
-    <Profile :profile="profileData" />
+    <Profile :profile="profileStore.data" />
   </div>
 </template>
+<script setup>
+  import { useProfileStore } from "@/stores/profile";
+  const profileStore = useProfileStore();
+  profileStore.get()
+</script>
 <script>
 export default defineComponent({
-  async fetch({ store }) {
-    // Prevent load if its already loaded
-    await store.dispatch("profile/get");
-  },
-  computed: {
-    profileData() {
-      return this.$store.state.profile.data;
-    },
-    isProfileDataLoading() {
-      return this.$store.state.profile.loading;
-    },
-  },
 })
 </script>

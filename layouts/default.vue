@@ -1,17 +1,16 @@
 <template>
-  <v-app id="bg" dark>
+  <v-app id="bg">
     <v-app-bar
       app
       fixed
       color="light-blue darken-4"
       dark
       collapse-on-scroll
-      src="/bar-background.jpg"
       fade-img-on-scroll
     >
-      <template v-slot:img="{ props }">
+      <template v-slot:image>
         <v-img
-          v-bind="props"
+        src="/bar-background.jpg"
           gradient="to top right, #01579b, rgba(25,32,72,.7)"
         />
       </template>
@@ -22,37 +21,34 @@
 
       <v-toolbar-title>Niklas Grieger - Developement</v-toolbar-title>
 
-      <template v-slot:extension>
-        <v-tabs color="light-blue lighten-4" grow show-arrows>
+      <v-tabs color="light-blue lighten-4" grow show-arrows>
           <v-tab to="/">
-            <v-icon left> mdi-information </v-icon>
+            <v-icon icon="mdi-information" left>  </v-icon>
             About
           </v-tab>
           <v-tab to="/projects">
-            <v-icon left> mdi-code-tags </v-icon>
+            <v-icon icon="mdi-code-tags" left></v-icon>
             Projects
           </v-tab>
           <v-tab to="/timeline">
-            <v-icon left> mdi-timeline-text </v-icon>
+            <v-icon icon="mdi-timeline-text" left>  </v-icon>
             Career
           </v-tab>
         </v-tabs>
-      </template>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <nuxt />
+      <v-container fluid>
+        <slot />
       </v-container>
     </v-main>
     <v-bottom-navigation
       hide-on-scroll
       horizontal
-      background-color="light-blue darken-4"
-      color="light-blue lighten-2"
+      class="bg-light-blue-darken-4"
     >
       <v-btn href="https://github.com/devonik" target="_blank" text>
         <span>Github</span>
-        <v-icon>mdi-github</v-icon>
+        <v-icon icon="mdi-github"></v-icon>
       </v-btn>
 
       <v-btn
@@ -61,7 +57,12 @@
         target="_blank"
       >
         <span>Xing</span>
-        <v-icon>mdi-xing</v-icon>
+        <v-icon>
+          <v-img
+            src="/ic-xing.png"
+            alt="John"
+          ></v-img>
+        </v-icon>
       </v-btn>
 
       <v-btn
@@ -70,12 +71,12 @@
         target="_blank"
       >
         <span>LinkedIn</span>
-        <v-icon>mdi-linkedin</v-icon>
+        <v-icon icon="mdi-linkedin"></v-icon>
       </v-btn>
 
       <v-btn text href="mailto:niklas.grieger@devnik.dev" target="_blank">
         <span>Email</span>
-        <v-icon>mdi-email</v-icon>
+        <v-icon icon="mdi-email"></v-icon>
       </v-btn>
     </v-bottom-navigation>
   </v-app>
@@ -101,6 +102,3 @@
   );
 }
 </style>
-<script>
-export default {};
-</script>

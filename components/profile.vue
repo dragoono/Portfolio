@@ -1,19 +1,13 @@
 <template>
   <v-card v-if="profile" max-width="876">
-    <v-list-item>
-      <v-list-item-avatar>
+    <v-list-item :title="profile.title" :subtitle="profile.subtitle">
+      <v-avatar>
         <v-img :src="profile.avatar_image" :lazy-src="lazySrc" alt="Avatar">
           <template v-slot:placeholder>
             <ImagePlaceholder />
           </template>
         </v-img>
-      </v-list-item-avatar>
-      <v-list-item-content>
-        <v-list-item-title class="headline">
-          {{ profile.title }}
-        </v-list-item-title>
-        <v-list-item-subtitle>{{ profile.subtitle }}</v-list-item-subtitle>
-      </v-list-item-content>
+      </v-avatar>
     </v-list-item>
 
     <v-img
@@ -38,9 +32,8 @@
       <v-chip-group column>
         <v-chip v-for="icon in profile.icons" :key="icon.id" class="ma-2">
           <v-tooltip top>
-            <template v-slot:activator="{ on }">
-              <v-icon v-on="on">
-                {{ "mdi-" + icon.key }}
+            <template v-slot:activator="{ props }">
+              <v-icon :icon="'mdi-' + icon.key" v-bind="props">
               </v-icon>
             </template>
             <span>{{ icon.name }}</span>
@@ -51,21 +44,19 @@
   </v-card>
 </template>
 <script>
-import ImagePlaceholder from "~/components/ImagePlaceholder";
-export default {
-  components: { ImagePlaceholder },
+export default defineComponent({
   props: {
     profile: {
       type: Object,
       default: null,
     },
   },
-  computed: {
-    lazySrc() {
-      return this.$store.state.imageLazySrc;
-    },
-  },
-};
+  data(){
+    return {
+      lazySrc: 'https://picsum.photos/id/11/100/60'
+    }
+  }
+})
 </script>
 <style>
 .full-width {

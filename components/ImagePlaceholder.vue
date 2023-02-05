@@ -5,9 +5,6 @@
 </template>
 
 <script>
-export default {
-  name: "ImagePlaceholder",
-};
 </script>
 
 <style scoped></style>

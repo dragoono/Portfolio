@@ -2812,7 +2812,7 @@
   optionalDependencies:
     "fsevents" "~2.3.2"
 
-"nuxt@^3.1.2":
+"nuxt@^3.1.0":
   "integrity" "sha512-mzEYvokFZAtiZRfNNj72m94nuMWzBgOCwuxlYt9paxH4Y9qcBr+Ki4ppnqD1gK719exccGqJAODJWL05aN3HFA=="
   "resolved" "https://registry.npmjs.org/nuxt/-/nuxt-3.1.2.tgz"
   "version" "3.1.2"
