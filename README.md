@@ -1,3 +1,6 @@
+# My old portfolio frontent
+Written in Vue3 and Nuxt3. It shows my work history and my projects. The projects I can edit live in my laravel backend
+
 # Development
 
 This project exists in github and gitlab
@@ -8,4 +11,4 @@ Gitlab: Used for CI/CD Deployment cause gitlab provides free docker registry
 
 1. git add .
 2. git commit -m "commit message"
-3. git push all master 
+3. git push all master
